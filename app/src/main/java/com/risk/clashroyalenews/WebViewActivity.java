@@ -10,6 +10,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.risk.clashroyalenews.helper.Constants;
 import com.risk.clashroyalenews.helper.Util;
 
@@ -48,6 +51,12 @@ public class WebViewActivity extends AppCompatActivity {
             Log.e(TAG, "No URL specified for webview");
             return;
         }
+
+        MobileAds.initialize(WebViewActivity.this,getString(R.string.ad_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adWebView);
+        AdRequest adRequest= new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         mWebViewUtil = new Util(WebViewActivity.this, mLink, mWebPage, mProgressBar);
         mWebViewUtil.openInWebView();
     }
@@ -79,5 +88,17 @@ public class WebViewActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mWebPage.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mWebPage.onResume();
     }
 }
