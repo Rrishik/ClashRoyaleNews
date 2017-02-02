@@ -20,14 +20,6 @@ public class PageParser {
     private Document mDocument;
     private Elements divs;
 
-    public interface PageParseListener {
-
-        void onResponse(List<AdapterData> dataList);
-
-        void onError(String error);
-
-    }
-
     public PageParser(Context context, String pageUrl, PageParseListener listener) {
 
         mContext = context;
@@ -75,6 +67,14 @@ public class PageParser {
 //        AdapterData[] newsArr = new AdapterData[newsList.size()];
 //        newsList.toArray(newsArr);
         return newsList;
+    }
+
+    public interface PageParseListener {
+
+        void onResponse(List<AdapterData> dataList);
+
+        void onError(String error);
+
     }
 
 }

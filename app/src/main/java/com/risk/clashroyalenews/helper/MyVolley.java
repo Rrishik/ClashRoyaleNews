@@ -10,8 +10,8 @@ import com.android.volley.toolbox.Volley;
 public class MyVolley {
 
     private static MyVolley mInstance;
-    private RequestQueue mRequestQueue;
     private static Context mContext;
+    private RequestQueue mRequestQueue;
     private String TAG = MyVolley.class.getSimpleName();
 
     public MyVolley(Context context) {

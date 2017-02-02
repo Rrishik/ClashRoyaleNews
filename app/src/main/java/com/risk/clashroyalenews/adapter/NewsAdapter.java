@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.risk.clashroyalenews.adapter.AdapterData;
 import com.risk.clashroyalenews.R;
 import com.risk.clashroyalenews.helper.Util;
 
@@ -18,9 +17,9 @@ import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsAdapterViewHolder> {
 
+    private final RecyclerViewClickListener mOnclickListener;
     private List<AdapterData> mDataset;
     private Context mContext;
-    private final RecyclerViewClickListener mOnclickListener;
 
     public NewsAdapter(Context context, RecyclerViewClickListener listener) {
 
@@ -28,33 +27,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsAdapterVie
         mContext = context;
         mDataset = new ArrayList<>();
     }
-
-    public interface RecyclerViewClickListener {
-        void onClickListener(String link);
-    }
-
-
-    class NewsAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
-        final TextView mNewsTextView;
-        final ImageView mImageIv;
-        final TextView mDate;
-
-        NewsAdapterViewHolder(View view) {
-            super(view);
-            mNewsTextView = (TextView) view.findViewById(R.id.tv_news_data);
-            mImageIv = (ImageView) view.findViewById(R.id.iv_news_image);
-            mDate = (TextView) view.findViewById(R.id.tv_date);
-            view.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            String link = mDataset.get(getAdapterPosition()).mLink;
-            mOnclickListener.onClickListener(link);
-        }
-    }
-
 
     @Override
     public NewsAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -90,5 +62,30 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsAdapterVie
 
     public void refreshAdapter() {
         notifyDataSetChanged();
+    }
+
+    public interface RecyclerViewClickListener {
+        void onClickListener(String link);
+    }
+
+    class NewsAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        final TextView mNewsTextView;
+        final ImageView mImageIv;
+        final TextView mDate;
+
+        NewsAdapterViewHolder(View view) {
+            super(view);
+            mNewsTextView = (TextView) view.findViewById(R.id.tv_news_data);
+            mImageIv = (ImageView) view.findViewById(R.id.iv_news_image);
+            mDate = (TextView) view.findViewById(R.id.tv_date);
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            String link = mDataset.get(getAdapterPosition()).mLink;
+            mOnclickListener.onClickListener(link);
+        }
     }
 }

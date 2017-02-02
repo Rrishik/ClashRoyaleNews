@@ -52,9 +52,9 @@ public class WebViewActivity extends AppCompatActivity {
             return;
         }
 
-        MobileAds.initialize(WebViewActivity.this,getString(R.string.ad_app_id));
+        MobileAds.initialize(WebViewActivity.this, getString(R.string.ad_app_id));
         AdView mAdView = (AdView) findViewById(R.id.adWebView);
-        AdRequest adRequest= new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
         mWebViewUtil = new Util(WebViewActivity.this, mLink, mWebPage, mProgressBar);

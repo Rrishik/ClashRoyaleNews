@@ -17,13 +17,6 @@ import java.util.Map;
 
 public class VolleyUtils {
 
-    public interface VolleyRequestListener {
-
-        void onResponse(String response);
-
-        void onError(String error);
-    }
-
     public static void sendVolleyStringRequest(final Context context, String url, final VolleyRequestListener listener) {
         StringRequest volleyRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -229,5 +222,12 @@ public class VolleyUtils {
                 DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2,
                 1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MyVolley.getInstance(context).addToRequestQueue(postRequest);
+    }
+
+    public interface VolleyRequestListener {
+
+        void onResponse(String response);
+
+        void onError(String error);
     }
 }

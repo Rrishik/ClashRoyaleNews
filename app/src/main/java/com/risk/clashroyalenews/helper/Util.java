@@ -63,33 +63,6 @@ public class Util {
 
     }
 
-    public void refresh() {
-        mWebview.loadUrl(mLink);
-    }
-
-    public void shareLink() {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, mLink);
-        mContext.startActivity(intent);
-    }
-
-    public void copyLink() {
-        ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(CLIPBOARD_SERVICE);
-        ClipData clipData = ClipData.newPlainText("link", mLink);
-        clipboard.setPrimaryClip(clipData);
-        Toast.makeText(mContext, "Link Copied !", Toast.LENGTH_LONG).show();
-    }
-
-    public void openInWebView() {
-        mWebview.loadUrl(mLink);
-    }
-
-    public void openInBrowser() {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mLink));
-        mContext.startActivity(browserIntent);
-    }
-
     public static void loadImageByPicasso(Context context, ImageView imageView, String imageUrl) {
 
         Picasso.with(context)
@@ -120,6 +93,33 @@ public class Util {
 
     public static String reformatDate(String crDate) {
         return convertToString(convertToDate(crDate));
+    }
+
+    public void refresh() {
+        mWebview.loadUrl(mLink);
+    }
+
+    public void shareLink() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, mLink);
+        mContext.startActivity(intent);
+    }
+
+    public void copyLink() {
+        ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(CLIPBOARD_SERVICE);
+        ClipData clipData = ClipData.newPlainText("link", mLink);
+        clipboard.setPrimaryClip(clipData);
+        Toast.makeText(mContext, "Link Copied !", Toast.LENGTH_LONG).show();
+    }
+
+    public void openInWebView() {
+        mWebview.loadUrl(mLink);
+    }
+
+    public void openInBrowser() {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mLink));
+        mContext.startActivity(browserIntent);
     }
 
 }
