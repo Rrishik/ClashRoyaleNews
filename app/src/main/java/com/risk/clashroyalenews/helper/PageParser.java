@@ -64,8 +64,6 @@ public class PageParser {
             AdapterData data = new AdapterData(news, imgLinks, date, links);
             newsList.add(data);
         }
-//        AdapterData[] newsArr = new AdapterData[newsList.size()];
-//        newsList.toArray(newsArr);
         return newsList;
     }
 

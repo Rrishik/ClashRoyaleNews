@@ -10,12 +10,14 @@
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_alignParentTop="true"
         android:background="@color/colorAccent" />
 
     <WebView
         android:id="@+id/wv_page"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/progressBar" />
 
 
     <com.google.android.gms.ads.AdView

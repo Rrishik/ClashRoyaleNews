@@ -35,7 +35,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="4sp"
         android:layout_marginRight="4sp"
-        android:text="Dec 12, 2014"
         android:textSize="12sp"
         android:textStyle="italic" />
 
