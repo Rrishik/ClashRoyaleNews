@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 
@@ -22,7 +21,6 @@ public class WebViewActivity extends AppCompatActivity {
 
     private WebView mWebPage;
     private String mLink;
-    private WebSettings mWebsettings;
     private ProgressBar mProgressBar;
     private Util mWebViewUtil;
 
@@ -52,9 +50,9 @@ public class WebViewActivity extends AppCompatActivity {
             return;
         }
 
-        MobileAds.initialize(WebViewActivity.this,getString(R.string.ad_app_id));
+        MobileAds.initialize(WebViewActivity.this, getString(R.string.ad_app_id));
         AdView mAdView = (AdView) findViewById(R.id.adWebView);
-        AdRequest adRequest= new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
         mWebViewUtil = new Util(WebViewActivity.this, mLink, mWebPage, mProgressBar);

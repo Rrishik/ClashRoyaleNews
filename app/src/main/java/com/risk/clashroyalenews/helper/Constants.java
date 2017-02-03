@@ -1,9 +1,5 @@
 package com.risk.clashroyalenews.helper;
 
-/**
- * Created by Gopi on 17-01-2017.
- */
-
 public class Constants {
 
     public static class Intent {

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="70dp">
+    android:layout_height="80dp">
 
     <ImageView
         android:id="@+id/iv_news_image"
-        android:layout_width="80dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_margin="8dp"
         android:adjustViewBounds="true"
         android:scaleType="center"
         android:src="@drawable/ic_placeholder" />
@@ -19,9 +20,11 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/iv_news_image"
         android:ellipsize="end"
+        android:fontFamily="sans-serif"
         android:gravity="center_vertical"
         android:maxLines="1"
         android:padding="12dp"
+        android:textColor="@color/text_black"
         android:textSize="18sp" />
 
     <TextView
@@ -32,13 +35,13 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="4sp"
         android:layout_marginRight="4sp"
-        android:text="Dec 12, 2014"
         android:textSize="12sp"
         android:textStyle="italic" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:background="#baba" />
 

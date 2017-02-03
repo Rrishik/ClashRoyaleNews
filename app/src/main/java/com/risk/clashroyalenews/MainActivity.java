@@ -62,9 +62,9 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.Recyc
                 android.R.color.holo_red_light);
         mSwipeRefreshLayout.setDistanceToTriggerSync(300);
 
-        MobileAds.initialize(MainActivity.this,getString(R.string.ad_app_id));
+        MobileAds.initialize(MainActivity.this, getString(R.string.ad_app_id));
         AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest= new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
     }
 

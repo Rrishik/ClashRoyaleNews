@@ -9,7 +9,6 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -53,41 +52,7 @@ public class Util {
                 }
             }
         });
-        mWebview.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-        });
 
-    }
-
-    public void refresh() {
-        mWebview.loadUrl(mLink);
-    }
-
-    public void shareLink() {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, mLink);
-        mContext.startActivity(intent);
-    }
-
-    public void copyLink() {
-        ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(CLIPBOARD_SERVICE);
-        ClipData clipData = ClipData.newPlainText("link", mLink);
-        clipboard.setPrimaryClip(clipData);
-        Toast.makeText(mContext, "Link Copied !", Toast.LENGTH_LONG).show();
-    }
-
-    public void openInWebView() {
-        mWebview.loadUrl(mLink);
-    }
-
-    public void openInBrowser() {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mLink));
-        mContext.startActivity(browserIntent);
     }
 
     public static void loadImageByPicasso(Context context, ImageView imageView, String imageUrl) {
@@ -120,6 +85,33 @@ public class Util {
 
     public static String reformatDate(String crDate) {
         return convertToString(convertToDate(crDate));
+    }
+
+    public void refresh() {
+        mWebview.loadUrl(mLink);
+    }
+
+    public void shareLink() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, mLink);
+        mContext.startActivity(intent);
+    }
+
+    public void copyLink() {
+        ClipboardManager clipboard = (ClipboardManager) mContext.getSystemService(CLIPBOARD_SERVICE);
+        ClipData clipData = ClipData.newPlainText("link", mLink);
+        clipboard.setPrimaryClip(clipData);
+        Toast.makeText(mContext, "Link Copied !", Toast.LENGTH_LONG).show();
+    }
+
+    public void openInWebView() {
+        mWebview.loadUrl(mLink);
+    }
+
+    public void openInBrowser() {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mLink));
+        mContext.startActivity(browserIntent);
     }
 
 }
