@@ -1,4 +1,4 @@
-package com.risk.clashroyalenews.adapter;
+package com.risk.newsroyale.adapter;
 
 
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.risk.clashroyalenews.R;
-import com.risk.clashroyalenews.helper.Util;
+import com.risk.newsroyale.helper.Util;
 
 import java.util.ArrayList;
 import java.util.List;

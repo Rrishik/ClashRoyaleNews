@@ -1,4 +1,4 @@
-package com.risk.clashroyalenews;
+package com.risk.newsroyale;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -12,8 +12,9 @@ import android.widget.ProgressBar;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.risk.clashroyalenews.helper.Constants;
-import com.risk.clashroyalenews.helper.Util;
+import com.risk.clashroyalenews.R;
+import com.risk.newsroyale.helper.Constants;
+import com.risk.newsroyale.helper.Util;
 
 public class WebViewActivity extends AppCompatActivity {
 

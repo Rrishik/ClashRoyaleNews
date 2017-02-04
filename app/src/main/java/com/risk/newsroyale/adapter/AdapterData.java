@@ -1,4 +1,4 @@
-package com.risk.clashroyalenews.adapter;
+package com.risk.newsroyale.adapter;
 
 
 public class AdapterData {

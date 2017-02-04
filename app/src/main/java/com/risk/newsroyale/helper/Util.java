@@ -1,4 +1,4 @@
-package com.risk.clashroyalenews.helper;
+package com.risk.newsroyale.helper;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -39,20 +39,19 @@ public class Util {
         mWebview = webView;
         mProgressBar = progressBar;
         WebSettings mWebsettings = mWebview.getSettings();
-        mWebsettings.setJavaScriptEnabled(true);
         mWebview.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
+                if (progress < 100 && mProgressBar.getVisibility() == ProgressBar.GONE) {
+                    mProgressBar.setVisibility(ProgressBar.VISIBLE);
+                }
+
                 mProgressBar.setProgress(progress);
                 if (progress == 100) {
                     mProgressBar.setVisibility(View.GONE);
-
-                } else {
-                    mProgressBar.setVisibility(View.VISIBLE);
-
                 }
             }
         });
-
+        mWebsettings.setJavaScriptEnabled(true);
     }
 
     public static void loadImageByPicasso(Context context, ImageView imageView, String imageUrl) {

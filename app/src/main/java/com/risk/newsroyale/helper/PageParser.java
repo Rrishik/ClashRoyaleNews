@@ -1,9 +1,9 @@
-package com.risk.clashroyalenews.helper;
+package com.risk.newsroyale.helper;
 
 
 import android.content.Context;
 
-import com.risk.clashroyalenews.adapter.AdapterData;
+import com.risk.newsroyale.adapter.AdapterData;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

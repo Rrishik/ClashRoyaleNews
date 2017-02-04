@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".WebViewActivity">
+    tools:context="com.risk.newsroyale.WebViewActivity">
     <item
         android:id="@+id/open_in_browser"
         android:title="Open in browser"

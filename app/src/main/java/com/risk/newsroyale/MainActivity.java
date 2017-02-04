@@ -1,4 +1,4 @@
-package com.risk.clashroyalenews;
+package com.risk.newsroyale;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,10 +15,11 @@ import android.view.View;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.risk.clashroyalenews.adapter.AdapterData;
-import com.risk.clashroyalenews.adapter.NewsAdapter;
-import com.risk.clashroyalenews.helper.Constants;
-import com.risk.clashroyalenews.helper.PageParser;
+import com.risk.clashroyalenews.R;
+import com.risk.newsroyale.adapter.AdapterData;
+import com.risk.newsroyale.adapter.NewsAdapter;
+import com.risk.newsroyale.helper.Constants;
+import com.risk.newsroyale.helper.PageParser;
 
 import java.util.List;
 

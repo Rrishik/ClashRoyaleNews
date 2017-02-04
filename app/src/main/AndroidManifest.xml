@@ -8,9 +8,10 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_preview"
         android:label="@string/app_name"
+        android:launchMode="singleTop"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.risk.newsroyale.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,8 +20,8 @@
         </activity>
 
         <activity
-            android:name=".WebViewActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name="com.risk.newsroyale.WebViewActivity"
+            android:parentActivityName="com.risk.newsroyale.MainActivity" />
     </application>
 
 </manifest>
