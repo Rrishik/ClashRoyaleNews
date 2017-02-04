@@ -33,7 +33,7 @@ public class WebViewActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle("Clash Royale");
+            actionBar.setTitle("Royale Updates");
         }
 
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
