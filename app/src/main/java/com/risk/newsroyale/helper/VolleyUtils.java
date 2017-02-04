@@ -1,4 +1,4 @@
-package com.risk.clashroyalenews.helper;
+package com.risk.newsroyale.helper;
 
 import android.content.Context;
 import android.util.Log;

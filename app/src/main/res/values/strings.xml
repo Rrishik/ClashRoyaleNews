@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Clash Royale News</string>
+    <string name="app_name">News Royale</string>
     <string name="error_msg">Oops!! an error has occurred!</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="ad_app_id">"ca-app-pub-3940256099942544~3347511713"</string>

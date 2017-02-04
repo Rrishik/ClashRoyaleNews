@@ -1,4 +1,4 @@
-package com.risk.clashroyalenews.helper;
+package com.risk.newsroyale.helper;
 
 public class Constants {
 
