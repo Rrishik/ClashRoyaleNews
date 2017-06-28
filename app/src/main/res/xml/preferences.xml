@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:defaultValue="@string/language_default"
+        android:dialogIcon="@mipmap/ic_language"
+        android:entries="@array/language_names"
+        android:entryValues="@array/language_values"
+        android:icon="@mipmap/ic_language"
+        android:key="@string/language_options"
+        android:summary="%s"
+        android:title="Language" />
+    <Preference
+        android:icon="@mipmap/ic_video"
+        android:key="@string/video_ad"
+        android:summary="Support us by watching a video"
+        android:title="Watch a video" />
+</PreferenceScreen>

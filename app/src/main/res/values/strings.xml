@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">News Royale</string>
-    <string name="error_msg">Oops!! an error has occurred!</string>
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="ad_app_id">"ca-app-pub-3940256099942544~3347511713"</string>
+    <string name="banner_ad_unit_id_main">ca-app-pub-5444157372657553/3748936623</string>
+    <string name="banner_ad_unit_id_webview">ca-app-pub-5444157372657553/1698623820</string>
+    <string name="ad_app_id">ca-app-pub-5444157372657553~2272203420</string>
+
+    <string name="language_options">language</string>
+    <string name="language_default"></string>
+
+    <string name="video_ad">reward</string>
 </resources>

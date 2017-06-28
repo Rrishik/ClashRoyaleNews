@@ -2,7 +2,9 @@ package com.risk.newsroyale;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +17,7 @@ import android.view.View;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.risk.clashroyalenews.R;
 import com.risk.newsroyale.adapter.AdapterData;
 import com.risk.newsroyale.adapter.NewsAdapter;
@@ -25,17 +28,29 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NewsAdapter.RecyclerViewClickListener {
 
+    public static RewardedVideoAd mAd;
     private String TAG = getClass().getSimpleName();
-
     private RecyclerView mRecyclerView;
     private NewsAdapter mAdapter;
     private AlertDialog.Builder mErrorMsg;
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    private SharedPreferences mSharedPreferences;
+    private String language;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        language = mSharedPreferences.getString(getString(R.string.language_options), "");
+
+        if (language.equals("ku/")) {
+            url = "https://cr.kunlun.com/blog/news/";
+        } else {
+            url = "https://clashroyale.com/" + language + "blog/news/";
+        }
 
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_news);
         mErrorMsg = new AlertDialog.Builder(MainActivity.this);
@@ -51,6 +66,13 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.Recyc
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                language = mSharedPreferences.getString(getString(R.string.language_options), "");
+
+                if (language.equals("ku/")) {
+                    url = "https://cr.kunlun.com/blog/news/";
+                } else {
+                    url = "https://clashroyale.com/" + language + "blog/news/";
+                }
                 loadData();
             }
         });
@@ -67,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.Recyc
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        mAd = MobileAds.getRewardedVideoAdInstance(MainActivity.this);
+        mAd.loadAd(getString(R.string.video_ad), new AdRequest.Builder().build());
     }
 
     private void showNews() {
@@ -88,7 +113,6 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.Recyc
 
     private void loadData() {
 
-        final String url = "https://clashroyale.com/blog/news/";
 
         PageParser p = new PageParser(MainActivity.this, url, new PageParser.PageParseListener() {
             @Override
@@ -116,9 +140,9 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.Recyc
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemClicked = item.getItemId();
-        if (itemClicked == R.id.action_refresh) {
-            mSwipeRefreshLayout.setRefreshing(true);
-            loadData();
+        if (itemClicked == R.id.action_select_language) {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
